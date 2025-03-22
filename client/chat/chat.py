@@ -1,3 +1,8 @@
+from server.server import Server
+from llm.llm import LLMClient
+import asyncio
+from logger.logging import logging
+
 class ChatSession:
     """Orchestrates the interaction between user, LLM, and tools."""
 
@@ -138,18 +143,18 @@ class ChatSession:
             await self.cleanup_servers()
 
 
-async def main() -> None:
-    """Initialize and run the chat session."""
-    config = Configuration()
-    server_config = config.load_config("servers_config.json")
-    servers = [
-        Server(name, srv_config)
-        for name, srv_config in server_config["mcpServers"].items()
-    ]
-    llm_client = LLMClient(config.llm_api_key)
-    chat_session = ChatSession(servers, llm_client)
-    await chat_session.start()
+# async def main() -> None:
+#     """Initialize and run the chat session."""
+#     config = Configuration()
+#     server_config = config.load_config("servers_config.json")
+#     servers = [
+#         Server(name, srv_config)
+#         for name, srv_config in server_config["mcpServers"].items()
+#     ]
+#     llm_client = LLMClient(config.llm_api_key)
+#     chat_session = ChatSession(servers, llm_client)
+#     await chat_session.start()
 
 
-if __name__ == "__main__":
-    asyncio.run(main())
+# if __name__ == "__main__":
+#     asyncio.run(main())

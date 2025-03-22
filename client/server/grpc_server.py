@@ -1,18 +1,18 @@
 import asyncio
 import grpc
+import json
 import logging
 from concurrent import futures
 from typing import Any, AsyncIterator
 from grpc.aio import ServicerContext
 
-from ..protos import chat_service_pb2 as pb2
-from ..protos import chat_service_pb2_grpc as pb2_grpc
-from ..config import Configuration
-from ..server.server import Server
-from ..llm.llm import LLMClient
+import proto.chat_pb2 as pb2
+import proto.chat_pb2_grpc as pb2_grpc
 
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+from config.config import Configuration
+from server.server import Server
+from llm.llm import LLMClient
+from logger.logging import logger
 
 class ChatServicer(pb2_grpc.ChatServiceServicer):
     def __init__(self) -> None:

@@ -6,10 +6,7 @@ from contextlib import AsyncExitStack
 from typing import Any
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
+from tools.tool import Tool
 
 class Server:
     """Manages MCP server connections and tool execution."""

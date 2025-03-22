@@ -1,7 +1,7 @@
 import asyncio
 import grpc
-from ..protos import chat_service_pb2 as pb2
-from ..protos import chat_service_pb2_grpc as pb2_grpc
+import proto.chat_pb2_grpc as pb2_grpc
+import proto.chat_pb2 as pb2
 
 async def chat_stream(stub: pb2_grpc.ChatServiceStub, query: str, skip_verification: bool = False) -> None:
     """Stream chat responses from the server."""

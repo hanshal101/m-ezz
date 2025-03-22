@@ -1,5 +1,6 @@
 import os
-
+import httpx
+from logger.logging import logging
 
 class LLMClient:
     """Manages communication with the LLM provider."""

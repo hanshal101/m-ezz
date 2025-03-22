@@ -1,0 +1,7 @@
+grpcio
+grpcio-tools
+mcp
+openai
+httpx
+asyncio
+dotenv
