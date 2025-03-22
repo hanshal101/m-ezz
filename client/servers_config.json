@@ -5,9 +5,9 @@
         "args": [
           "-y",
           "@modelcontextprotocol/server-filesystem",
-          "H:/m-ezz/client",
-          "H:/m-ezz/client"
+          "/home/lol/testing",
+          "/home/lol/testing"
         ]
       }
     }
-  }
+}
