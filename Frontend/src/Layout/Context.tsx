@@ -5,4 +5,4 @@ interface ContextType {
     toggle_sidebar: () => void;
   }
 
-export const context = createContext<ContextType | null>(null);
+  export const context = createContext<ContextType | null>(null);

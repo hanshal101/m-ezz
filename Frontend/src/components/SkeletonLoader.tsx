@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Loading_skeleton: React.FC = () => {
+const SkeletonLoader: React.FC = () => {
     return (
         <div className="flex flex-col w-full h-64 animate-pulse -4 gap-4">
             <div className="bg-neutral-400/50 w-full h-32 animate-pulse rounded-md"></div>
@@ -14,4 +14,4 @@ const Loading_skeleton: React.FC = () => {
     )
 }
 
-export default Loading_skeleton
+export default SkeletonLoader

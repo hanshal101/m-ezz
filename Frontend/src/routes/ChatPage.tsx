@@ -1,8 +1,8 @@
-import { Send, Copy , Mic } from 'lucide-react';
+import { Send, Copy, Mic } from 'lucide-react';
 import React, { useRef, useEffect, useState } from 'react';
 import Openbar from '../components/Openbar';
 import Layoutwrap from '../Layout/Layoutwrap';
-import Loading_skeleton from '../components/Loading_skeleton';
+import SkeletonLoader from '../components/SkeletonLoader';
 
 const ChatPage: React.FC = () => {
 
@@ -32,11 +32,9 @@ const ChatPage: React.FC = () => {
 
         if (!inputValue.trim()) return;
 
-        // Add user message
         setMessages([...messages, { role: 'user', content: inputValue }]);
         setInputValue('');
 
-        // Simulate response
         setIsLoading(true);
         setTimeout(() => {
             setMessages(prev => [
@@ -54,14 +52,14 @@ const ChatPage: React.FC = () => {
         <React.Fragment>
             <Layoutwrap>
                 <div className="flex flex-col flex-grow items-center">
-                <div className={`flex-1 w-full px-4 overflow-y-auto ${messages.length && 'md:py-4'}`}> {/* mb-26 */}
-                {!messages.length && (
-                        <div className="min-h-screen max-w-2xl mx-auto text-center flex flex-col items-center justify-center w-full space-y-3">
-                            <span><Openbar /></span>
-                            <h1 className='text-2xl text-gray-700 md:text-4xl font-semibold'>How can I assist you?</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo suscipit ab, dolor tempora quos ut velit sint deleniti saepe et.</p>
-                        </div>
-                    )}
+                    <div className={`flex-1 w-full px-4 overflow-y-auto ${messages.length && 'md:py-4'}`}> {/* mb-26 */}
+                        {!messages.length && (
+                            <div className="min-h-screen max-w-2xl mx-auto text-center flex flex-col items-center justify-center w-full space-y-3">
+                                <span><Openbar /></span>
+                                <h1 className='text-2xl text-gray-700 md:text-4xl font-semibold'>How can I assist you?</h1>
+                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo suscipit ab, dolor tempora quos ut velit sint deleniti saepe et.</p>
+                            </div>
+                        )}
                         <div className={`max-w-3xl mx-auto space-y-1 md:space-y-4 ${messages.length && 'mb-32 md:mb-38'}`}>  {/* mb-26 */}
                             {messages.map((message, index) => (
                                 <div key={index} className={`flex ${message.role === 'user' ? 'justify-start font-bold text-2xl text-gray-600' : 'justify-start'}`}>
@@ -83,7 +81,7 @@ const ChatPage: React.FC = () => {
                                     )}
                                 </div>))}
                             {isLoading && (
-                                <Loading_skeleton />
+                                <SkeletonLoader />
                             )}
                             <div ref={messagesEndRef} />
                         </div>
@@ -99,6 +97,8 @@ const ChatPage: React.FC = () => {
                                 className="flex-grow shadow-sm p-3 md:p-4 pl-4 pr-24 bg-white border border-gray-400 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                             <button
+                                // onClick={props.startlistening}
+                                // d`isabled={props.disablelistening}
                                 className={`absolute right-13 p-3 text-gray-600 rounded-lg`}
                             >
                                 <Mic size={20} />
@@ -106,13 +106,14 @@ const ChatPage: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={!inputValue.trim() || isLoading}
+                                onClick={() => handleSubmit}
                                 className={`absolute right-4 p-3 rounded-lg ${!inputValue.trim()}`}
                             >
                                 <Send size={18} />
                             </button>
                         </div>
                         <div>
-                            <p className='text-xs text-center pt-1'>Perplexity can make mistakes. Check important info.</p>
+                            <p className='text-xs text-center pt-1'>M-Ezz can make mistakes. Check important info.</p>
                         </div>
                     </form>
                 </div>

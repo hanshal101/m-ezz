@@ -1,26 +1,24 @@
-import { Settings, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import React, { useContext } from 'react';
 import { context } from '../Layout/Context';
+import { Link } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
 
-     const {isOpen , toggle_sidebar} = useContext(context)
+    const { toggle_sidebar } = useContext(context) ?? {};
 
     return (
 
         <React.Fragment>
 
-            <header className="bg-white border-b border-gray-200 p-4">
+            <header className="md:hidden visible bg-white border-b border-gray-200 p-4">
                 <div className="max-w-5xl mx-auto flex justify-between items-center">
-                    <button className="visible text-gray-600 hover:text-gray-800 md:hidden" onClick={() => toggle_sidebar()}>
+                    <button className="visible text-gray-600 hover:text-gray-800 md:hidden" onClick={() => toggle_sidebar}>
                         <Menu />
                     </button>
-                    <h1 className="text-xl font-semibold text-cyan-700">{"Perplexity".toUpperCase()}</h1>
-                    <button className="text-gray-600 hover:text-gray-800">
-                        <Settings />
-                    </button>
+                    <Link to={'/'} className="text-xl font-semibold text-cyan-700">{"M-Ezz".toUpperCase()}</Link>
                 </div>
-            </header>          
+            </header>
 
         </React.Fragment>
     );

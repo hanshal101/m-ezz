@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { context } from './Layout/Context';
 import About from './routes/About';
 import Home from './routes/Home';
+import McpPage from './routes/McpPage';
+import PricePage from './routes/PricePage';
 
 const App: React.FC = () => {
 
@@ -23,6 +25,8 @@ const App: React.FC = () => {
             <Route path='/' element={<Home />} />
             <Route path='/chat' element={<ChatPage />} />
             <Route path='/About' element={<About />} />
+            <Route path='/mcp' element={<McpPage />} />
+            <Route path='/pricing' element={<PricePage />} />
           </Routes>
         </BrowserRouter>
       </context.Provider>
