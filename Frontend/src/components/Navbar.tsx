@@ -13,7 +13,7 @@ export const Navbar: React.FC = () => {
 
             <header className="md:hidden visible bg-white border-b border-gray-200 p-4">
                 <div className="max-w-5xl mx-auto flex justify-between items-center">
-                    <button className="visible text-gray-600 hover:text-gray-800 md:hidden" onClick={() => toggle_sidebar}>
+                    <button className="visible text-gray-600 hover:text-gray-800 md:hidden" onClick={() => toggle_sidebar()}>
                         <Menu />
                     </button>
                     <Link to={'/'} className="text-xl font-semibold text-cyan-700">{"M-Ezz".toUpperCase()}</Link>

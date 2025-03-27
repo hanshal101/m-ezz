@@ -37,12 +37,12 @@ const Sidebar: React.FC = () => {
                     <ArrowLeft className={`mt-1 cursor-pointer text-gray-600 bg-gray-300 rounded-full ${!md_sidebar && 'hidden'}`} onClick={md_togglebar} />
                     {!md_sidebar && <ArrowRight size={30} className='mt-1 p-1 cursor-pointer text-gray-600 bg-gray-300 rounded-full mb-6' onClick={md_togglebar} />}
                 </div>
-                <div className='mb-5' onClick={() => toggle_sidebar}>
+                <div className='mb-5' onClick={() => toggle_sidebar()}>
                     <Link to={'/mcp'} className={`flex gap-2 items-center ${md_sidebar && 'bg-amber-200 py-2 rounded-full pl-2'}`}><img src={image} alt="" className={`mix-blend-multiply ${md_sidebar && 'w-8' || 'w-15 mx-auto'}`} />{md_sidebar && 'MCP'}</Link>
                 </div>
                 <nav className="flex flex-col gap-4 pt-2">
                     {['Home', 'About', 'Chat' , 'Pricing'].map((list, index) => (
-                        <Link onClick={() => toggle_sidebar} key={index} to={list == "Home" ? '/' : `/${list}`} className={`flex items-center gap-2 text-cyan-800 hover:rounded-r-4xl hover:bg-gray-200 py-2 w-full ${!md_sidebar && 'justify-center'}`}>
+                        <Link onClick={() => toggle_sidebar()} key={index} to={list == "Home" ? '/' : `/${list}`} className={`flex items-center gap-2 text-cyan-800 hover:rounded-r-4xl hover:bg-gray-200 py-2 w-full ${!md_sidebar && 'justify-center'}`}>
                             {Object.values(icon)[index]} {md_sidebar && list}
                         </Link>
                     ))}
